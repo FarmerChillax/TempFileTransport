@@ -7,7 +7,7 @@
 '''
 from apiflask import APIFlask
 
-def make_app(config_name:str = None)->APIFlask:
+def create_app(config_name:str = None)->APIFlask:
     app = APIFlask(__name__, title="FileTransport", version='0.1.0')
 
     # load config
