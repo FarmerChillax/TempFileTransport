@@ -11,6 +11,6 @@ token_auth = HTTPTokenAuth()
 
 
 
-@token_auth.verify_token()
+@token_auth.verify_token
 def verify_token(token:str):
     pass
