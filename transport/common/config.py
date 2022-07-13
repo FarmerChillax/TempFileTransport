@@ -28,7 +28,8 @@ class BaseConfig(object):
     EXPIRE_TIME = 3600 * 24
     # expire
     # 缓存设置
-    CACHE_TYPE = os.getenv("CACHE_TYPE", 'SimpleCache')
+    CACHE_TYPE = os.getenv("CACHE_TYPE", 'filesystem')
+    CACHE_DIR = "./cache"
     CACHE_DEFAULT_TIMEOUT = os.getenv("CACHE_DEFAULT_TIMEOUT")
     CACHE_REDIS_URL = os.getenv("CACHE_REDIS_URL")
 
