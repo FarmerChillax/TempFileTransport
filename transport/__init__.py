@@ -26,8 +26,9 @@ def create_app(config_name:str = "development")->APIFlask:
 
 
 def register_buleprints(app:APIFlask):
-    from transport.blueprints import upload_bp
+    from transport.blueprints import upload_bp, download_bp
     app.register_blueprint(upload_bp)
+    app.register_blueprint(download_bp)
 
 
 def register_extensions(app: APIFlask):

@@ -7,3 +7,4 @@
 '''
 
 from .upload import upload_bp
+from .download import download_bp
