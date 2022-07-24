@@ -28,10 +28,17 @@ class BaseConfig(object):
     EXPIRE_TIME = 3600 * 24
     # expire
     # 缓存设置
-    CACHE_TYPE = os.getenv("CACHE_TYPE", 'SimpleCache')
+    CACHE_TYPE = os.getenv("CACHE_TYPE", 'redis')
     CACHE_DIR = "./cache"
-    CACHE_DEFAULT_TIMEOUT = os.getenv("CACHE_DEFAULT_TIMEOUT", 10)
-    CACHE_REDIS_URL = os.getenv("CACHE_REDIS_URL")
+    CACHE_DEFAULT_TIMEOUT = os.getenv("CACHE_DEFAULT_TIMEOUT", 3600)
+    CACHE_REDIS_URL = os.getenv("CACHE_REDIS_URL", 'redis://username:password@localhost:6379')
+
+    # 前缀设置
+    PREFIX_MD5_TO_FILE = os.getenv("PREFIX_MD5_TO_FILE", "MD5_TO_FILE")
+    PREFIX_MD5_TO_FILENAME = os.getenv("PREFIX_MD5_TO_FILENAME", "MD5_TO_FILENAME")
+    PREFIX_MD5_TO_CODE = os.getenv("PREFIX_MD5_TO_CODE", "MD5_TO_CODE")
+    PREFIX_CODE_TO_MD5 = os.getenv("PREFIX_CODE_TO_MD5", "CODE_TO_MD5")
+
 
 # 开发环境配置
 class DevelopmentConfig(BaseConfig):

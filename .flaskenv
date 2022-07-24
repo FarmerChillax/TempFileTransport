@@ -2,3 +2,10 @@ FLASK_APP=transport
 FLASK_ENV=development
 
 
+PREFIX_MD5_TO_FILE=md5_to_file
+PREFIX_MD5_TO_FILENAME=md5_to_filename
+PREFIX_MD5_TO_CODE=md5_to_code
+PREFIX_CODE_TO_MD5=code_to_md5
+
+
+
