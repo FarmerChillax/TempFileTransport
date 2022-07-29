@@ -5,12 +5,8 @@
     :url: https://blog.farmer233.top
     :date: 2022/05/26 13:16:47
 '''
-from logging import raiseExceptions
-from os import stat
-from time import time
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
-from io import BytesIO
 
 from flask import current_app
 from flask.views import MethodView
@@ -41,9 +37,12 @@ def upload(data: dict):
     Returns:
         dict: 返回md5、生成的提取码等信息
     """
-    file: FileStorage = data.get("file")
-    file_md5 = data.get("md5")
-    # 缓存文件
-    temp_file = TempFile(md5=file_md5, filename=secure_filename(file.filename), file_stream=file.stream.read())
-    extract_code = temp_file.save()
-    return {"extract_code": extract_code}
+    try:
+        file: FileStorage = data.get("file")
+        file_md5 = data.get("md5")
+        # 缓存文件
+        temp_file = TempFile(md5=file_md5, filename=secure_filename(file.filename), file_stream=file.stream.read())
+        extract_code = temp_file.save()
+        return {"extract_code": extract_code}
+    except GenerateException as ge:
+        pass
